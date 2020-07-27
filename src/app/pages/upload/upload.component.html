@@ -1,0 +1,19 @@
+<section class="container mt-4" *ngIf="!uploadFileSuccess">
+  <h3>Upload file</h3>
+
+  <input type="file" class="mr-4" accept='image/*' (change)="handleFileInput($event.target.files)">
+
+  <button class="btn btn-lg btn-primary" (click)="upload()" [disabled]="!isFileSelected">Upload</button>
+
+  <div>
+    <small class="text-danger" *ngIf="!!error">
+      {{ error }}
+    </small>
+  </div>
+</section>
+
+<section class="container mt-4" *ngIf="uploadFileSuccess">
+  <h3>
+    Congratulations, your file has been uploaded successfully
+  </h3>
+</section>
